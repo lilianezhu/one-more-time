@@ -28,14 +28,14 @@ function smoothScroll(target) {
 }
 
 // ===== TAB SWITCHING =====
-function switchTab(tabName) {
+function switchTab(tabName, button) {
     // Hide all tabs
     const tabs = document.querySelectorAll('.tab-content');
     tabs.forEach(tab => tab.classList.remove('active'));
 
     // Remove active class from all buttons
     const buttons = document.querySelectorAll('.tab-button');
-    buttons.forEach(button => button.classList.remove('active'));
+    buttons.forEach(btn => btn.classList.remove('active'));
 
     // Show selected tab
     const selectedTab = document.getElementById(tabName);
@@ -44,7 +44,9 @@ function switchTab(tabName) {
     }
 
     // Add active class to clicked button
-    event.target.classList.add('active');
+    if (button) {
+        button.classList.add('active');
+    }
 }
 
 // ===== SCROLL TO TOP =====
