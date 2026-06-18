@@ -49,6 +49,17 @@ function switchTab(tabName, button) {
     }
 }
 
+function setupTabSwitching() {
+    document.querySelectorAll('.tab-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const tabName = button.dataset.tab;
+            if (tabName) {
+                switchTab(tabName, button);
+            }
+        });
+    });
+}
+
 // ===== SCROLL TO TOP =====
 function scrollToTop() {
     window.scrollTo({
@@ -318,6 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupLazyLoading();
     animateSkillTags();
     preventFormDoubleSubmit();
+    setupTabSwitching();
     initPageLoad();
 
     // Log message for debugging
